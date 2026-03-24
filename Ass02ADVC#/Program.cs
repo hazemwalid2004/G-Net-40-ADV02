@@ -83,6 +83,16 @@
             //    Console.WriteLine(product);
             //we use func becouse we want a return type string 
             #endregion
+            #region Task03.3
+            //Predicate<Product> predicate = prod => prod.Stock < 20;
+            //List<Product> products = FilterProducts(catalog, predicate);
+            //Console.WriteLine("---------Low-Stock Alert");
+            //foreach(Product product in products)
+            //{
+            //    Console.WriteLine($"[LOW STOCK] {product.Name}: only {product.Stock} left!");
+            //}
+            //we use predicate because we use bool
+            #endregion
         }
         #region HelperFunction
         static List<Product> SearchProducts(List<Product> products, Predicate<Product> filter)
@@ -106,6 +116,10 @@
                 result.Add(re);
             }
             return result;
+        }
+        static List<Product> FilterProducts(List<Product> products,Predicate<Product> predicate)
+        {
+            return products.FindAll(predicate);
         }
         #endregion
     }
