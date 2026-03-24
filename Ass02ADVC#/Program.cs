@@ -51,11 +51,27 @@
             ////    Console.WriteLine($"{p.Name}-${p.Price}(stock: {p.Stock})");
             ////}
             #endregion
+            #region Task03.1
+            //Action<Product> action = prod => Console.WriteLine($"{prod.Name}-${prod.Price}");
+            //Console.WriteLine("-----------Short Report-----------");
+            //PrintReport(catalog, action);
+            //action = prod => Console.WriteLine($"[{prod.Category}] {prod.Name} | price : ${prod.Price} | stock : {prod.Stock}");
+            //Console.WriteLine("-----------Delited Report-----------");
+            //PrintReport(catalog, action);
+            //i choose action becouse the functions is void 
+            #endregion
         }
         #region HelperFunction
         static List<Product> SearchProducts(List<Product> products, Predicate<Product> filter)
         {
             return products.FindAll(filter);
+        }
+        static void PrintReport(List<Product> products,Action<Product> action)
+        {
+            foreach (Product product in products)
+            {
+                action(product);
+            }
         }
         #endregion
     }
